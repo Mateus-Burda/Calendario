@@ -62,7 +62,10 @@ switch (mesAtualNumero) {
     case 12: quantidadeDias = 31;
     break;
 }
-
+let a= 0
+for (let index = 0; index < quantidadeDias; index++) {
+    
+}
 
 
 

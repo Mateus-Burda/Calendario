@@ -19,7 +19,6 @@ body{
     border:solid black 1px;
     background-color: rgba(255, 255, 255, 0.689);
 }
-
 #titulo{
     margin: 0px;
     text-align: center;
@@ -30,4 +29,16 @@ body{
     margin: 3px;
     font-size: 1.5rem;
     border-bottom: solid 1px black;
+}
+#dias-semana{
+    display:flex;
+    justify-content: space-around;
+    
+}
+#dias-semana h3{
+    border: 1px solid black;
+    height: 5vh;
+    text-align: center;
+    aspect-ratio: 2/1;
+    font-size: 0.75rem;
 }
