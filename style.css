@@ -1,0 +1,33 @@
+*{
+    font-size:3vh;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(72, 72, 192, 0.428);
+
+    justify-content: center;
+    height: 100vh;
+}
+#calendario-container{ 
+    height: 50vh;
+    max-width: 800px;
+    aspect-ratio: 1/1;
+    box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.526);
+    border:solid black 1px;
+    background-color: rgba(255, 255, 255, 0.689);
+}
+
+#titulo{
+    margin: 0px;
+    text-align: center;
+    font-size: 2rem;
+}
+#mes{
+    text-align: center;
+    margin: 3px;
+    font-size: 1.5rem;
+    border-bottom: solid 1px black;
+}
