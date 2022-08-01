@@ -1,4 +1,4 @@
-let data = new Date(); //retorna a data de hoje
+let data = new Date("2022,10"); //retorna a data de hoje
 let dataHoje = {
     dia : data.getDate(),
     ano : data.getFullYear(),
@@ -7,7 +7,24 @@ let dataHoje = {
     diaDaSemana: definirDia(),
     quantosDiasTem : diasDoMes(),
 }
-console.log(dataHoje);
+function calcularDia() {
+    if (data.getDate()==data.getDay()) {
+        console.log(data.getDate()-data.getDay())
+    }
+    else{
+        for (let index = 1; index < data.getDay(); index++) {
+            console.log(index);
+            let novoH = document.createElement('h4')
+            let numeroDosDias = document.getElementById("dias-numero");
+            numeroDosDias.appendChild(novoH);
+        }
+        
+        console.log(data.getDay())
+        console.log(data.getDate()-data.getDay())
+    }
+}
+calcularDia();
+
 function definirDia(){
     let dia = data.getDay();
     switch (dia) {
