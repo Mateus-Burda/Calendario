@@ -1,11 +1,19 @@
-let data = new Date("2022,10"); //retorna a data de hoje
+let ano = 2022;
+let mess = 01;
+
+let btnProximo=document.getElementById("btn-proximo");
+btnProximo.onclick = function proxMes() {
+    mess++;
+}
+
+let data = new Date(ano,mess); //retorna a data de hoje
 let dataHoje = {
     dia : data.getDate(),
     ano : data.getFullYear(),
     mes: data.getMonth()+1,
     nomeDoMes : definirMes(),
     diaDaSemana: definirDia(),
-    quantosDiasTem : diasDoMes(),
+    quantidadeDeDias : quantosDias(),
 }
 function calcularDia() {
     if (data.getDate()==data.getDay()) {
@@ -13,14 +21,10 @@ function calcularDia() {
     }
     else{
         for (let index = 1; index < data.getDay(); index++) {
-            console.log(index);
             let novoH = document.createElement('h4')
             let numeroDosDias = document.getElementById("dias-numero");
             numeroDosDias.appendChild(novoH);
         }
-        
-        console.log(data.getDay())
-        console.log(data.getDate()-data.getDay())
     }
 }
 calcularDia();
@@ -79,36 +83,36 @@ let mesElemento = document.getElementById("mes");
 mesElemento.innerHTML = dataHoje.nomeDoMes + "  "+ dataHoje.ano;
 //Fim do algoritmo para escrever o mês atual dinamicamente
 //Algoritmo para definir quantidade de dias no mês
-function diasDoMes(){
-switch (data.getMonth()+1) {
-    case 1: return ; 31;
+function quantosDias(){
+switch (data.getMonth()) {
+    case 0: return 31;
     break;
-    case 2: if ((dataHoje.ano%4)!=0){return 28}else{return 29;} //if para calcular se o ano é bissexto ou não
+    case 1: return 28;
     break;
-    case 3: return 31;
+    case 2: return 31;
     break;
-    case 4: return 30;
+    case 3: return 30;
     break;
-    case 5: return 31;
+    case 4: return 31;
     break;
-    case 6: return 30;
+    case 5: return 30;
+    break;
+    case 6: return 31;
     break;
     case 7: return 31;
     break;
-    case 8: return 31;
+    case 8: return 30;
     break;
-    case 9: return 30;
+    case 9: return 31;
     break;
-    case 10: return 31;
+    case 10: return 30;
     break;
-    case 11: return 30;
-    break;
-    case 12: return 31;
+    case 11: return 31;
     break;
 }
 }
 //Algoritmo para adicionar a quantidade de dias do mês
-for (let index = 1; index <= dataHoje.quantosDiasTem; index++) {
+for (let index = 1; index <= dataHoje.quantidadeDeDias; index++) {
     let novoH = document.createElement('h4')
     let numeroDosDias = document.getElementById("dias-numero");
     novoH.innerHTML = index;
