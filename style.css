@@ -28,6 +28,8 @@ body{
     border-radius: 5px;
     width: 3vw;
     height: 3vw;
+    min-height: 30px;
+    min-width: 30px;
     aspect-ratio: 1/1;
     transition: 0.4s;
 }
