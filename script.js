@@ -1,12 +1,7 @@
-let ano = 2022;
-let mess = 01;
+let escolhaAno = 2022;
+let escolhaMes = 1;
 
-let btnProximo=document.getElementById("btn-proximo");
-btnProximo.onclick = function proxMes() {
-    mess++;
-}
-
-let data = new Date(ano,mess); //retorna a data de hoje
+let data = new Date(escolhaAno,escolhaMes); //retorna a data de hoje
 let dataHoje = {
     dia : data.getDate(),
     ano : data.getFullYear(),
@@ -14,6 +9,28 @@ let dataHoje = {
     nomeDoMes : definirMes(),
     diaDaSemana: definirDia(),
     quantidadeDeDias : quantosDias(),
+}
+
+let btnProximo=document.getElementById("btn-proximo");
+btnProximo.onclick = function proxMes() {
+    escolhaMes++;
+    if(escolhaMes>=13){
+        escolhaMes=0;
+        escolhaAno++;
+    }
+    else{
+    let data = new Date(escolhaAno,escolhaMes-1);
+    dataHoje = {
+        dia : data.getDate(),
+        ano : data.getFullYear(),
+        mes: escolhaMes,
+        nomeDoMes : definirMes(),
+        diaDaSemana: definirDia(),
+        quantidadeDeDias : quantosDias(),
+    }
+    inserirMes();
+    adicionarDias();
+}
 }
 function calcularDia() {
     if (data.getDate()==data.getDay()) {
@@ -50,8 +67,7 @@ function definirDia(){
 }
 //Função para escrever o mês atual dinamicamente
 function definirMes(){
-let mesAtualNumero = data.getMonth()+1; //precisa do +1 por que a contagem dos meses começa em janeiro como sendo o mês 0.
-switch (mesAtualNumero) {
+switch (escolhaMes) {
         case 1: return "Janeiro";
         break;
         case 2: return "Fevereiro";
@@ -78,13 +94,15 @@ switch (mesAtualNumero) {
         break;
 }
 }
-
-let mesElemento = document.getElementById("mes");
+let inserirMes = function() {
+    let mesElemento = document.getElementById("mes");
 mesElemento.innerHTML = dataHoje.nomeDoMes + "  "+ dataHoje.ano;
+}
+inserirMes();
 //Fim do algoritmo para escrever o mês atual dinamicamente
 //Algoritmo para definir quantidade de dias no mês
 function quantosDias(){
-switch (data.getMonth()) {
+switch (escolhaMes-1) {
     case 0: return 31;
     break;
     case 1: return 28;
@@ -111,13 +129,25 @@ switch (data.getMonth()) {
     break;
 }
 }
+let count=0;
 //Algoritmo para adicionar a quantidade de dias do mês
+function adicionarDias() {
+    while (count>0) {
+    let header4 = document.getElementById("header"+count);
+    let numeroDosDias = document.getElementById("dias-numero");
+    numeroDosDias.removeChild(header4)
+    count--
+    }
 for (let index = 1; index <= dataHoje.quantidadeDeDias; index++) {
+    count++
     let novoH = document.createElement('h4')
+    novoH.setAttribute("id","header"+index);
     let numeroDosDias = document.getElementById("dias-numero");
     novoH.innerHTML = index;
     numeroDosDias.appendChild(novoH);
 }
+}
+adicionarDias();
 //Fim do algoritmo
 
 
