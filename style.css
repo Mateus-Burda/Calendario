@@ -53,7 +53,7 @@ body{
     justify-content: space-around;
     
 }
-#dias-semana h3{
+#dias-semana td{
     border: 1px solid black;
     height: 5vh;
     text-align: center;
@@ -63,17 +63,13 @@ body{
     margin: 0px;
     transition: 0.3s;
 }
-#dias-semana h3:hover{
+#dias-semana th:hover{
     transition: 0.3s;
     background-color: rgb(178, 177, 177);
 
 }
-#dias-numero{
-    display: flex;
-    flex-wrap: wrap;
 
-}
-#dias-numero h4{
+.dias-numero td{
     height: 5vh;
     text-align: center;
     font-size: 1rem;
@@ -83,7 +79,11 @@ body{
     cursor: pointer;
     margin: 0px;
 }
-#dias-numero h4:hover{
+.dias-numero td:hover{
     background-color: rgb(178, 177, 177);
     transition: 0.3s;
+}
+
+table{
+     border-collapse: collapse;
 }

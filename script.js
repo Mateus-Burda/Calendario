@@ -32,18 +32,15 @@ btnProximo.onclick = function proxMes() {
     adicionarDias();
 }
 }
+
 function calcularDia() {
-    if (data.getDate()==data.getDay()) {
-        console.log(data.getDate()-data.getDay())
-    }
-    else{
+    if (data.getDate(0)!=data.getDay()) {
         for (let index = 1; index < data.getDay(); index++) {
-            let novoH = document.createElement('h4')
-            let numeroDosDias = document.getElementById("dias-numero");
-            numeroDosDias.appendChild(novoH);
-        }
+            let novoTd = document.createElement('td')
+            let numeroDosDias = document.getElementById("semana1");
+            numeroDosDias.appendChild(novoTd);
     }
-}
+}}
 calcularDia();
 
 function definirDia(){
@@ -130,26 +127,32 @@ switch (escolhaMes-1) {
 }
 }
 let count=0;
+let semanaAtual = 1;
+
 //Algoritmo para adicionar a quantidade de dias do mês
 function adicionarDias() {
     while (count>0) {
-    let header4 = document.getElementById("header"+count);
-    let numeroDosDias = document.getElementById("dias-numero");
-    numeroDosDias.removeChild(header4)
+    let td = document.getElementById("td"+count);
+    let semana = document.getElementById("semana"+semanaAtual);
+    semana.removeChild(td);
+    if(count==29){semanaAtual--;}        
+    if(count==22){semanaAtual--;}  
+    if(count==15){semanaAtual--;}        
+    if(count==8){semanaAtual--;}        
     count--
     }
 for (let index = 1; index <= dataHoje.quantidadeDeDias; index++) {
     count++
-    let novoH = document.createElement('h4')
-    novoH.setAttribute("id","header"+index);
-    let numeroDosDias = document.getElementById("dias-numero");
-    novoH.innerHTML = index;
-    numeroDosDias.appendChild(novoH);
+    let novoTd = document.createElement('td')
+    novoTd.setAttribute("id","td"+index);
+    if(index==8){semanaAtual++}
+    if(index==15){semanaAtual++}
+    if(index==22){semanaAtual++}
+    if(index==29){semanaAtual++}
+    let semana = document.getElementById("semana"+semanaAtual);
+    novoTd.innerHTML = index;
+    semana.appendChild(novoTd);
 }
 }
 adicionarDias();
 //Fim do algoritmo
-
-
-
-
