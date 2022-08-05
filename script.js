@@ -14,6 +14,13 @@ btnProximo.onclick = function proxMes(){
     inserirMes();
     inserirDias();
 }
+let btnVoltar=document.getElementById("btn-voltar");
+btnVoltar.onclick = function proxMes(){
+    escolhaMes--;
+    data = new Date(escolhaAno,escolhaMes-1,escolhaDia);
+    inserirMes();
+    inserirDias();
+}
 ;;
 //fim botão
 
