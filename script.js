@@ -1,5 +1,5 @@
 let escolhaAno = 2022;
-let escolhaMes = 1;
+let escolhaMes = 5;
 const escolhaDia = 01;
 
 
@@ -104,6 +104,7 @@ let inserirDias = function() {
         if(count==35){semanaAtual--}
     }
     for(let index = 1; index<=quantidadeDeDias+data.getDay()-1;index++){
+        console.log(quantidadeDeDias+data.getDay())
         count++
         if(index==8){semanaAtual++}
         if(index==15){semanaAtual++}
@@ -114,8 +115,8 @@ let inserirDias = function() {
         let novoTd = document.createElement('td');
         novoTd.setAttribute("id","dia"+index)
         semana.appendChild(novoTd);
-        if(index>data.getDay()-1){
-            novoTd.innerHTML= index-data.getDay()+1;
+        if(index>data.getDay()){
+            novoTd.innerHTML= index-data.getDay();
         }
     }
 }
