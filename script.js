@@ -1,5 +1,5 @@
 let escolhaAno = 2022;
-let escolhaMes = 5;
+let escolhaMes = 7;
 const escolhaDia = 01;
 
 
