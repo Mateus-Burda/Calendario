@@ -1,5 +1,5 @@
 *{
-    font-size:3vh;
+    font-size:2.5vh;
     font-family: 'Poppins', sans-serif;
 }
 body{
@@ -11,7 +11,7 @@ body{
     height: 100vh;
 }
 #calendario-container{ 
-    height: 47vh;
+    height: 42vh;
     max-width: 800px;
     aspect-ratio: 1/1;
     box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.526);
@@ -26,11 +26,8 @@ body{
 }
 .button-mes{
     border-radius: 5px;
-    width: 3vw;
-    height: 3vw;
-    min-height: 30px;
-    min-width: 30px;
-    aspect-ratio: 1/1;
+    width: 30px;
+    height: 30px;
     transition: 0.4s;
 }
 .button-mes:hover{
@@ -56,6 +53,8 @@ body{
 #dias-semana td{
     border: 1px solid black;
     height: 5vh;
+    width: 5vh;
+
     text-align: center;
     aspect-ratio: 2/1;
     font-size: 0.75rem;
