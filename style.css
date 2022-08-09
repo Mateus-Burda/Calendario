@@ -67,6 +67,9 @@ body{
     background-color: rgb(178, 177, 177);
 
 }
+.dia-hoje{
+    background-color: rgb(189, 189, 189);
+}
 
 .dias-numero td{
     height: 5vh;

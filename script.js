@@ -1,11 +1,9 @@
 let escolhaAno = 2022;
-let escolhaMes = 7;
+let escolhaMes = 8;
 const escolhaDia = 01;
 
 
 var data = new Date(escolhaAno,escolhaMes-1,escolhaDia);
-console.log(data)
-
 //função do botão
 let btnProximo=document.getElementById("btn-proximo");
 btnProximo.onclick = function proxMes(){
@@ -13,6 +11,8 @@ btnProximo.onclick = function proxMes(){
     data = new Date(escolhaAno,escolhaMes-1,escolhaDia);
     inserirMes();
     inserirDias();
+    destacarHoje()
+
 }
 let btnVoltar=document.getElementById("btn-voltar");
 btnVoltar.onclick = function proxMes(){
@@ -20,6 +20,8 @@ btnVoltar.onclick = function proxMes(){
     data = new Date(escolhaAno,escolhaMes-1,escolhaDia);
     inserirMes();
     inserirDias();
+    destacarHoje()
+
 }
 ;;
 //fim botão
@@ -103,8 +105,7 @@ let inserirDias = function() {
         if(count==28){semanaAtual--}
         if(count==35){semanaAtual--}
     }
-    for(let index = 1; index<=quantidadeDeDias+data.getDay()-1;index++){
-        console.log(quantidadeDeDias+data.getDay())
+    for(let index = 1; index<=quantidadeDeDias+data.getDay();index++){
         count++
         if(index==8){semanaAtual++}
         if(index==15){semanaAtual++}
@@ -119,8 +120,21 @@ let inserirDias = function() {
             novoTd.innerHTML= index-data.getDay();
         }
     }
+    let destacarHoje = function() {
+        let dataHoje = new Date()
+        let diaHoje = dataHoje.getDate()-1
+        let contar = count - quantidadeDeDias +diaHoje+1;
+        console.log(contar)
+        let elementoHoje = document.getElementById("dia"+contar)
+        elementoHoje.classList.add("dia-hoje")
+    }
+    destacarHoje()
 }
 inserirDias();
 
 
 
+
+let weather = {
+    "apiKey" : "6258033c9bd00e2af0bfec0637c4daab"
+}
