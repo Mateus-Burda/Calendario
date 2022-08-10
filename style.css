@@ -89,3 +89,18 @@ body{
 table{
      border-collapse: collapse;
 }
+
+#clima{
+    background-color: white;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+#clima h3{
+    margin: 0px;
+}

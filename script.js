@@ -133,12 +133,15 @@ inserirDias();
 
 let nomeCidade
 let MostrarClima = function(){
+    hoje = new Date()
+    let hojeString = `${hoje.getDate()}/0${hoje.getMonth()+1}`;
+    console.log(hojeString)
+
 fetch("https://api.openweathermap.org/data/2.5/weather?lat=-25.431183&lon=-49.270094&appid=6258033c9bd00e2af0bfec0637c4daab&units=metric&lang=pt_br")
     .then(res => res.json())
     .then(informaçao => {
         console.log(informaçao)
-        document.querySelector("#clima").innerHTML = `<h3>${informaçao.name}</h3> <h3>Temperatura:${informaçao.main.temp}</h3> <h3>${informaçao.weather[0].description}</h3>`;     
-        console.log()
+        document.querySelector("#clima").innerHTML = `<h3>${informaçao.name} ${hojeString}</h3> <h3>Temp: ${informaçao.main.temp}</h3> <h3>${informaçao.weather[0].description}</h3>`;     
     })
 
     
