@@ -124,7 +124,6 @@ let inserirDias = function() {
         let dataHoje = new Date()
         let diaHoje = dataHoje.getDate()-1
         let contar = count - quantidadeDeDias +diaHoje+1;
-        console.log(contar)
         let elementoHoje = document.getElementById("dia"+contar)
         elementoHoje.classList.add("dia-hoje")
     }
@@ -132,9 +131,16 @@ let inserirDias = function() {
 }
 inserirDias();
 
+let nomeCidade
+let MostrarClima = function(){
+fetch("https://api.openweathermap.org/data/2.5/weather?lat=-25.431183&lon=-49.270094&appid=6258033c9bd00e2af0bfec0637c4daab&units=metric&lang=pt_br")
+    .then(res => res.json())
+    .then(informaçao => {
+        console.log(informaçao)
+        document.querySelector("#clima").innerHTML = `<h3>${informaçao.name}</h3> <h3>Temperatura:${informaçao.main.temp}</h3> <h3>${informaçao.weather[0].description}</h3>`;     
+        console.log()
+    })
 
-
-
-let weather = {
-    "apiKey" : "6258033c9bd00e2af0bfec0637c4daab"
+    
 }
+MostrarClima()
